@@ -17,5 +17,5 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 @TestExecutionListeners(value = {
         DependencyInjectionTestExecutionListener.class,
         TransactionDbUnitTestExecutionListener.class})
-public class RepositoryTest {
+public abstract class RepositoryTest {
 }
