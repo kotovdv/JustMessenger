@@ -4,6 +4,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <changeSet id="JustMessenger[0]" author="DmitriyKotov">
+        <comment>USER table creation</comment>
         <createTable tableName="USER">
             <column name="ID" autoIncrement="true" type="BIGINT">
                 <constraints primaryKey="true" nullable="false"/>
@@ -19,8 +20,8 @@
             </column>
         </createTable>
     </changeSet>
-
     <changeSet id="JustMessenger[1]" author="DmitriyKotov">
+        <comment>CHAT table creation</comment>
         <createTable tableName="CHAT">
             <column name="ID" autoIncrement="true" type="BIGINT">
                 <constraints primaryKey="true" nullable="false"/>
@@ -30,6 +31,17 @@
             </column>
         </createTable>
     </changeSet>
-
-
+    <changeSet id="JustMessenger[2]" author="DmitriyKotov">
+        <comment>USER_CHAT table creation</comment>
+        <createTable tableName="USER_CHAT">
+            <column name="USER_ID" type="BIGINT">
+                <constraints primaryKey="true" nullable="false" foreignKeyName="FK_USER_CHAT_USER"
+                             references="USER(ID)"/>
+            </column>
+            <column name="CHAT_ID" type="BIGINT">
+                <constraints primaryKey="true" nullable="false" foreignKeyName="FK_USER_CHAT_CHAT"
+                             references="CHAT(ID)"/>
+            </column>
+        </createTable>
+    </changeSet>
 </databaseChangeLog>

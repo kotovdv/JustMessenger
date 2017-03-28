@@ -53,4 +53,12 @@ class UsersTest : RepositoryTest() {
         users.remove(1L)
         testEntityManager.flush()
     }
+
+    @Test
+    @DatabaseSetup("classpath:users/chat_list/before.xml")
+    fun testChatList() {
+        val user = users.get(1L) ?: throw AssertionError()
+
+        assertThat(user.chats.size).isEqualTo(3)
+    }
 }
