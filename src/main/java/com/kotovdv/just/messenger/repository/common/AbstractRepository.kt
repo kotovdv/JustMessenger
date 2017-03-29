@@ -16,6 +16,7 @@ abstract class AbstractRepository<T, in ID : Serializable>(
         return repository.findOne(id)
     }
 
+    //TODO Current remove operation is not optimal at all, need changes
     fun remove(id: ID) {
         if (!repository.exists(id)) {
             throw UnableToDeleteNonExistingEntityException(id, classType)
