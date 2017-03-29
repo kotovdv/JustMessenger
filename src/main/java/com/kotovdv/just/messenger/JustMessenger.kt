@@ -6,7 +6,6 @@ import org.springframework.boot.builder.SpringApplicationBuilder
 
 @SpringBootApplication
 class JustMessenger {
-
     fun main(args: Array<String>) {
         SpringApplicationBuilder(JustMessenger::class.java)
                 .bannerMode(OFF)

@@ -10,7 +10,7 @@ import javax.persistence.FetchType.LAZY
 data class Chat(@Id @GeneratedValue val id: Long? = null,
                 @Column val name: String,
                 @BatchSize(size = 50)
-                @ManyToMany(fetch = LAZY, mappedBy = "chats")
+                @ManyToMany(fetch = LAZY, mappedBy = "_chats")
                 private val _users: List<User> = emptyList()) {
 
     val users: List<User>
