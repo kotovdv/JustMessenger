@@ -32,8 +32,24 @@ class ChatTest : RepositoryTest() {
     }
 
     @Test
+    @DatabaseSetup(value = "classpath:chats/remove/before.xml")
+    @ExpectedDatabase(value = "classpath:chats/remove/after.xml", assertionMode = NON_STRICT)
+    fun testChatDelete() {
+        chats.remove(1L)
+        testEntityManager.flush()
+    }
+
+
+    @Test
+    @DatabaseSetup(value = "classpath:chats/size/before.xml")
+    fun testChatSize() {
+        val size = chats.size()
+        assertThat(size).isEqualTo(3)
+    }
+
+    @Test
     @DatabaseSetup(value = "classpath:chats/user_list/before.xml")
-    fun testUserList() {
+    fun testChatUserList() {
         val chat = chats.get(1L) ?: throw AssertionError()
 
         assertThat(chat.users.size).isEqualTo(3)
