@@ -1,3 +1,7 @@
 <dataset>
     <CHAT/>
+    <USER ID="1" FIRST_NAME="John" LAST_NAME="Doe" CREATION_DT="1970-01-01 12:00:00"/>
+    <USER ID="2" FIRST_NAME="Jane" LAST_NAME="Doe" CREATION_DT="1970-01-01 13:00:00"/>
+    <USER ID="3" FIRST_NAME="Josh" LAST_NAME="Doe" CREATION_DT="1970-01-01 14:00:00"/>
+    <USER_CHAT/>
 </dataset>

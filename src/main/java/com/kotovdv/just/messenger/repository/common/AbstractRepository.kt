@@ -1,12 +1,12 @@
 package com.kotovdv.just.messenger.repository.common
 
 import com.kotovdv.just.messenger.exception.repository.UnableToDeleteNonExistingEntityException
-import org.springframework.data.jpa.repository.JpaRepository
+import com.kotovdv.just.messenger.repository.data.jpa.BaseJpaRepository
 import java.io.Serializable
 
 abstract class AbstractRepository<T, in ID : Serializable>(
-        private val repository: JpaRepository<T, ID>,
-        private val classType: Class<T>) {
+        private val repository: BaseJpaRepository<T, ID>,
+        private val entityClass: Class<T>) {
 
     fun addOrUpdate(entity: T): T {
         return repository.save(entity)
@@ -16,13 +16,11 @@ abstract class AbstractRepository<T, in ID : Serializable>(
         return repository.findOne(id)
     }
 
-    //TODO Current remove operation is not optimal at all, need changes
     fun remove(id: ID) {
-        if (!repository.exists(id)) {
-            throw UnableToDeleteNonExistingEntityException(id, classType)
+        val deletedCount = repository.deleteById(id)
+        if (deletedCount != 1L) {
+            throw UnableToDeleteNonExistingEntityException(id, entityClass)
         }
-
-        repository.delete(id)
     }
 
     fun size(): Long {

@@ -37,8 +37,8 @@ class ChatTest : RepositoryTest() {
     @Test
     @DatabaseSetup(value = "classpath:chats/remove/before.xml")
     @ExpectedDatabase(value = "classpath:chats/remove/after.xml", assertionMode = NON_STRICT)
-    @ExpectedQueriesCount(3)
-    fun testChatDelete() {
+    @ExpectedQueriesCount(2)
+    fun testChatRemove() {
         chats.remove(1L)
         testEntityManager.flush()
     }

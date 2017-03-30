@@ -1,3 +1,7 @@
 <dataset>
+    <CHAT ID="1" NAME="MyChat"/>
+    <CHAT ID="2" NAME="AnotherChat"/>
+    <CHAT ID="3" NAME="ThirdChat"/>
     <USER/>
+    <USER_CHAT/>
 </dataset>

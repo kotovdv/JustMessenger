@@ -6,7 +6,7 @@
 
     <groupId>com.kotovdv</groupId>
     <artifactId>just-messenger</artifactId>
-    <version>1.0</version>
+    <version>0.1</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -15,7 +15,6 @@
     </parent>
 
     <properties>
-        <!--<java.version>1.8</java.version>-->
         <kotlin.version>1.1.1</kotlin.version>
     </properties>
 

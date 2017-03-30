@@ -35,13 +35,32 @@
         <comment>USER_CHAT table creation</comment>
         <createTable tableName="USER_CHAT">
             <column name="USER_ID" type="BIGINT">
-                <constraints primaryKey="true" nullable="false" foreignKeyName="FK_USER_CHAT_USER"
-                             references="USER(ID)"/>
+                <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="CHAT_ID" type="BIGINT">
-                <constraints primaryKey="true" nullable="false" foreignKeyName="FK_USER_CHAT_CHAT"
-                             references="CHAT(ID)"/>
+                <constraints primaryKey="true" nullable="false"/>
             </column>
         </createTable>
+    </changeSet>
+    <changeSet id="JustMessenger[3]" author="DmitriyKotov">
+        <comment>USER_CHAT to USER FK</comment>
+        <addForeignKeyConstraint baseTableName="USER_CHAT"
+                                 baseColumnNames="USER_ID"
+                                 constraintName="FK_USER_CHAT_USER"
+                                 referencedTableName="USER"
+                                 referencedColumnNames="ID"
+                                 onDelete="CASCADE"
+                                 onUpdate="CASCADE"/>
+    </changeSet>
+    <changeSet id="JustMessenger[4]" author="DmitriyKotov">
+        <comment>USER_CHAT to CHAT FK</comment>
+        <addForeignKeyConstraint baseTableName="USER_CHAT"
+                                 baseColumnNames="CHAT_ID"
+                                 constraintName="FK_USER_CHAT_CHAT"
+                                 referencedTableName="CHAT"
+                                 referencedColumnNames="ID"
+                                 onDelete="CASCADE"
+                                 onUpdate="CASCADE"
+        />
     </changeSet>
 </databaseChangeLog>

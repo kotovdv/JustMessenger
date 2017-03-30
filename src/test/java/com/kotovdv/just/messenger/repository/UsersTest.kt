@@ -50,7 +50,7 @@ class UsersTest : RepositoryTest() {
     @Test
     @DatabaseSetup("classpath:users/remove/before.xml")
     @ExpectedDatabase(value = "classpath:users/remove/after.xml", assertionMode = NON_STRICT)
-    @ExpectedQueriesCount(4)
+    @ExpectedQueriesCount(3)
     fun testUserRemove() {
         users.remove(1L)
         testEntityManager.flush()
