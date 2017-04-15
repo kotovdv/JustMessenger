@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Import
 
 @Import(Chats::class)
-class ChatTest : RepositoryTest() {
+class ChatsTest : RepositoryTest() {
 
     @Autowired
     lateinit var chats: Chats
