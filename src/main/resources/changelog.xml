@@ -34,11 +34,14 @@
     <changeSet id="JustMessenger[2]" author="DmitriyKotov">
         <comment>USER_CHAT table creation</comment>
         <createTable tableName="USER_CHAT">
-            <column name="USER_ID" type="BIGINT">
+            <column name="ID" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
+            <column name="USER_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
             <column name="CHAT_ID" type="BIGINT">
-                <constraints primaryKey="true" nullable="false"/>
+                <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
@@ -62,5 +65,34 @@
                                  onDelete="CASCADE"
                                  onUpdate="CASCADE"
         />
+    </changeSet>
+
+    <changeSet id="JustMessenger[5]" author="DmitriyKotov">
+        <comment>MESSAGE table creation</comment>
+        <createTable tableName="MESSAGE">
+            <column name="ID" autoIncrement="true" type="BIGINT">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="USER_CHAT_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATION_DT" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TEXT" type="NVARCHAR2">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="JustMessenger[6]" author="DmitriyKotov">
+        <comment>MESSAGE TO USER_MESSAGE FK</comment>
+        <addForeignKeyConstraint baseTableName="MESSAGE"
+                                 baseColumnNames="USER_CHAT_ID"
+                                 constraintName="FK_MESSAGE_USER_CHAT"
+                                 referencedTableName="USER_CHAT"
+                                 referencedColumnNames="ID"
+                                 onUpdate="CASCADE"
+                                 onDelete="CASCADE"/>
     </changeSet>
 </databaseChangeLog>

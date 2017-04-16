@@ -1,0 +1,6 @@
+<dataset>
+    <CHAT ID="1" NAME="MyChat"/>
+    <USER ID="1" FIRST_NAME="John" LAST_NAME="Doe" CREATION_DT="1970-01-01 12:00:00"/>
+    <USER_CHAT ID="1" USER_ID="1" CHAT_ID="1"/>
+    <MESSAGE USER_CHAT_ID="1" CREATION_DT="1970-01-01 12:00:00" TEXT="Hello world!"/>
+</dataset>
