@@ -26,7 +26,6 @@
 
 
     <build>
-        <sourceDirectory>backend/src/main/kotlin</sourceDirectory>
         <pluginManagement>
             <plugins>
                 <plugin>
